@@ -44,12 +44,13 @@ src/
 │   └── utils/
 │       └── dateUtils.js
 └── App.js
+```
 
 ## Descripción de Carpetas y Archivos
 
 - **`src/`**: Contiene todo el código fuente de la aplicación.
 
-#### Módulos de Dominio
+## Módulos de Dominio
 
 - **`tasks/`**: Este módulo gestiona todo lo relacionado con las tareas.
   - **`components/`**: Componentes específicos del módulo de tareas, como la lista de tareas (`TaskList.js`) y cada tarea individual (`TaskItem.js`).
@@ -59,7 +60,7 @@ src/
   - **`utils/`**: Funciones de utilidad específicas para la manipulación de tareas.
 
 - **`users/`**: Este módulo gestiona todo lo relacionado con los usuarios.
-  - ** `components/` **: Componentes específicos del módulo de usuarios, como el perfil de usuario (`UserProfile.js`) y la lista de usuarios (`UserList.js`).
+  - **`components/`**: Componentes específicos del módulo de usuarios, como el perfil de usuario (`UserProfile.js`) y la lista de usuarios (`UserList.js`).
   - **`services/`**: Servicios que interactúan con APIs u otras fuentes de datos relacionadas con usuarios.
   - **`hooks/`**: Hooks personalizados que encapsulan la lógica específica de usuarios.
   - **`context/`**: Contextos de React para manejar el estado global relacionado con usuarios.
