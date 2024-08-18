@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Estructura de Carpetas utilizando Screaming Architecture en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introducción
 
-## Available Scripts
+Este documento describe la estructura de carpetas que se seguirá en un proyecto React utilizando los principios de **Screaming Architecture**. El objetivo es organizar el código de manera que refleje claramente el dominio y la funcionalidad del sistema, facilitando su comprensión y mantenimiento.
 
-In the project directory, you can run:
+## Estructura General
 
-### `npm start`
+En lugar de organizar el proyecto por tipos de archivos (componentes, servicios, etc.), se hará por funcionalidades o módulos de dominio. Cada módulo contendrá todos los elementos necesarios para implementar esa parte específica del sistema.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Estructura de Carpetas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```plaintext
+src/
+├── tasks/
+│   ├── components/
+│   │   ├── TaskList.js
+│   │   └── TaskItem.js
+│   ├── services/
+│   │   └── TaskService.js
+│   ├── hooks/
+│   │   └── useTasks.js
+│   ├── context/
+│   │   └── TaskContext.js
+│   └── utils/
+│       └── taskUtils.js
+├── users/
+│   ├── components/
+│   │   ├── UserProfile.js
+│   │   └── UserList.js
+│   ├── services/
+│   │   └── UserService.js
+│   ├── hooks/
+│   │   └── useUsers.js
+│   ├── context/
+│   │   └── UserContext.js
+│   └── utils/
+│       └── userUtils.js
+├── shared/
+│   ├── components/
+│   │   └── Button.js
+│   ├── hooks/
+│   │   └── useAuth.js
+│   └── utils/
+│       └── dateUtils.js
+└── App.js
 
-### `npm test`
+### Descripción de Carpetas y Archivos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **`src/`**: Contiene todo el código fuente de la aplicación.
 
-### `npm run build`
+#### Módulos de Dominio
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **`tasks/`**: Este módulo gestiona todo lo relacionado con las tareas.
+  - **`components/`**: Componentes específicos del módulo de tareas, como la lista de tareas (`TaskList.js`) y cada tarea individual (`TaskItem.js`).
+  - **`services/`**: Servicios que interactúan con APIs u otras fuentes de datos relacionadas con tareas.
+  - **`hooks/`**: Hooks personalizados que encapsulan la lógica específica de tareas.
+  - **`context/`**: Contextos de React para manejar el estado global relacionado con tareas.
+  - **`utils/`**: Funciones de utilidad específicas para la manipulación de tareas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **`users/`**: Este módulo gestiona todo lo relacionado con los usuarios.
+  - **`components/`**: Componentes específicos del módulo de usuarios, como el perfil de usuario (`UserProfile.js`) y la lista de usuarios (`UserList.js`).
+  - **`services/`**: Servicios que interactúan con APIs u otras fuentes de datos relacionadas con usuarios.
+  - **`hooks/`**: Hooks personalizados que encapsulan la lógica específica de usuarios.
+  - **`context/`**: Contextos de React para manejar el estado global relacionado con usuarios.
+  - **`utils/`**: Funciones de utilidad específicas para la manipulación de usuarios.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Componentes y Funcionalidades Compartidas
 
-### `npm run eject`
+- **`shared/`**: Contiene componentes, hooks y utilidades que se utilizan en múltiples módulos de dominio.
+  - **`components/`**: Componentes reutilizables en diferentes partes de la aplicación, como `Button.js`.
+  - **`hooks/`**: Hooks que pueden ser utilizados por varios módulos, como `useAuth.js`.
+  - **`utils/`**: Funciones de utilidad compartidas, como `dateUtils.js`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Archivo Principal
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **`App.js`**: Componente raíz de la aplicación, donde se integran y configuran los distintos módulos de dominio.
